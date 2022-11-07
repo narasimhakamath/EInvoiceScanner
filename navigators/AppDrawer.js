@@ -16,7 +16,10 @@ const AppDrawer = () => {
 				drawerActiveBackgroundColor: '#FFFFFF',
 				drawerActiveTintColor: '#000000',
 				drawerInactiveTintColor: '#FFFFFF',
-
+				headerStyle: {
+					backgroundColor: '#000000',
+				},
+				headerTintColor: '#FFFFFF'
 			}}
 		>
 			<Drawer.Screen
