@@ -1,11 +1,21 @@
 import { Text, View, StyleSheet, Alert } from "react-native";
 import { Camera, CameraType } from 'expo-camera';
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import { isValidEInvoiceQR, parseJWT } from "../utils/qrcode";
+import { useIsFocused } from "@react-navigation/native";
 
 
-const Scanner = () => {
-	const scannerHandler = ({type, data}) => {
-		Alert.alert("SCANNED SUCCESSFULLY...");
+const Scanner = ({navigation}) => {
+	const isFocused = useIsFocused();
+
+	const scannerHandler = ({data}) => {
+		if(data) {
+			const eInvoice = parseJWT(data);
+			const isValid = isValidEInvoiceQR(eInvoice);
+			if(isValid) {
+				navigation.navigate('InvoiceScreen', {eInvoice});
+			}
+		}
 	}
 
 	return(
