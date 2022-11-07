@@ -7,7 +7,7 @@ import AppDrawer from './navigators/AppDrawer';
 export default function App() {
 	return(
 		<>
-			<StatusBar style="dark" />
+			<StatusBar style="light" />
 			<NavigationContainer>
 				<AppDrawer/>
 			</NavigationContainer>
